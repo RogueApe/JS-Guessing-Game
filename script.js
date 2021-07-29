@@ -21,23 +21,46 @@ const guessGame = function () {
             let minHint = randomNum - 1;
             let maxHint = randomNum + 1;
 
-            if (chances > 1) {
-                alert(`Try again! You only have ${chances} chances left!`);
-            } else if (chances === 1) {
-                alert(`Try again! You only have ${chances} chance left!`);
-            }
+            if (userGuess > randomNum) {
 
-            if (chances > 0) {
-                alert(`Hints: Number is between ${minHint} - ${maxHint}`)
-                console.log(`${chances} chances left`);
-            }
+                if (chances > 1) {
+                    alert(`Too HIGH! You only have ${chances} chances left!`);
+                } else if (chances === 1) {
+                    alert(`Too HIGH! You only have ${chances} chance left!`);
+                }
 
-            if (chances === 0) {
-                again = false;
-                alert(`GAME OVER! The correct answer is ${randomNum}`)
-                console.log(`${chances} chances left`);
+                if (chances > 0) {
+                    // alert(`Hints: Number is between ${minHint} - ${maxHint}`)
+                }
+
+                if (chances === 0) {
+                    again = false;
+                    alert(`GAME OVER! The correct answer is ${randomNum}`)
+                    console.log(`${chances} chance left`);
+                }
+
+            } else if (userGuess < randomNum) {
+
+                if (chances > 1) {
+                    alert(`Too Low! You only have ${chances} chances left!`);
+                } else if (chances === 1) {
+                    alert(`Too Low! You only have ${chances} chance left!`);
+                }
+
+                if (chances > 0) {
+                    // alert(`Hints: Number is between ${minHint} - ${maxHint}`)
+                }
+
+                if (chances === 0) {
+                    again = false;
+                    alert(`GAME OVER! The correct answer is ${randomNum}`)
+                    console.log(`${chances} chance left`);
+                }
+
             }
         }
     }
 };
 guessGame();
+
+
